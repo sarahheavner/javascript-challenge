@@ -38,10 +38,31 @@ function runEnter() {
     // get the value property of the input element
     var inputValue = inputElement.property("value");
 
+    // console.log input value and table data
     console.log(inputValue);
     console.log(tableData);
 
+    // filter data by timedate entered into form
     var filteredData = tableData.filter(sighting => sighting.datetime === inputValue);
 
+    // console.log filtered data
     console.log(filteredData);
-}
+
+    // select tbody 
+    var tbody = d3.select("tbody");
+
+    // clear tbody data
+    tbody.html("");
+
+    // Loop through filtered data.js, collect keys and values from each Object and append to table 
+    filteredData.forEach((ufoSightings) => {
+        var row = tbody.append("tr");
+        Object.entries(ufoSightings).forEach(([key, value]) => {
+            var cell = row.append("td");
+            cell.text(value);
+        });
+
+    });
+
+
+};
