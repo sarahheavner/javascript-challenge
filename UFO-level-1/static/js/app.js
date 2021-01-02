@@ -33,7 +33,7 @@ function runEnter() {
     d3.event.preventDefault();
 
     // select the input element and get the raw HTML node
-    var inputElement = d3.select("#datesearch");
+    var inputElement = d3.select("#datetime");
 
     // get the value property of the input element
     var inputValue = inputElement.property("value");
@@ -53,6 +53,7 @@ function runEnter() {
 
     // clear tbody data
     tbody.html("");
+
 
     // Loop through filtered data.js, collect keys and values from each Object and append to table 
     filteredData.forEach((ufoSightings) => {
