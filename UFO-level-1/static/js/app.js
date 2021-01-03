@@ -62,7 +62,6 @@ function runEnter() {
             var cell = row.append("td");
             cell.text(value);
         });
-
     });
 
 
