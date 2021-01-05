@@ -34,19 +34,35 @@ function runEnter() {
 
     // select the input element and get the raw HTML node
     var inputElement = d3.select("#datetime");
+    var inputElementCity = d3.select("#city");
+    var inputElementState = d3.select("#state");
+    var inputElementCountry = d3.select("#country");
+    var inputElementShape = d3.select("#shape");
 
     // get the value property of the input element
     var inputValue = inputElement.property("value");
+    var inputValueCity = inputElementCity.property("value");
+    var inputValueState = inputElementState.property("value");
+    var inputValueCountry = inputElementCountry.property("value");
+    var inputValueShape = inputElementShape.property("value");
 
     // console.log input value and table data
     console.log(inputValue);
     console.log(tableData);
 
-    // filter data by timedate entered into form
-    var filteredData = tableData.filter(sighting => sighting.datetime === inputValue);
+    // filter data by fields entered into form
+    var filteredDate = tableData.filter(sighting => sighting.datetime === inputValue);
+    var filteredCity = tableData.filter(sighting => sighting.city === inputValueCity);
+    var filteredState = tableData.filter(sighting => sighting.state === inputValueState);
+    var filteredCountry = tableData.filter(sighting => sighting.country === inputValueCountry);
+    var filteredShape = tableData.filter(sighting => sighting.shape === inputValueShape)
 
     // console.log filtered data
-    console.log(filteredData);
+    console.log(filteredDate);
+    console.log(filteredCity);
+    console.log(filteredState);
+    console.log(filteredCountry);
+    console.log(filteredShape);
 
     // select tbody 
     var tbody = d3.select("tbody");
@@ -56,7 +72,7 @@ function runEnter() {
 
 
     // Loop through filtered data.js, collect keys and values from each Object and append to table 
-    filteredData.forEach((ufoSightings) => {
+    filteredDate.forEach((ufoSightings) => {
         var row = tbody.append("tr");
         Object.entries(ufoSightings).forEach(([key, value]) => {
             var cell = row.append("td");
