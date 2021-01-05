@@ -80,5 +80,39 @@ function runEnter() {
         });
     });
 
+    filteredCity.forEach((ufoSightings) => {
+        var row = tbody.append("tr");
+        Object.entries(ufoSightings).forEach(([key, value]) => {
+            var cell = row.append("td");
+            cell.text(value);
+        });
+    });
+
+    filteredState.forEach((ufoSightings) => {
+        var row = tbody.append("tr");
+        Object.entries(ufoSightings).forEach(([key, value]) => {
+            var cell = row.append("td");
+            cell.text(value);
+        });
+    });
+
+    filteredCountry.forEach((ufoSightings) => {
+        var row = tbody.append("tr");
+        Object.entries(ufoSightings).forEach(([key, value]) => {
+            var cell = row.append("td");
+            cell.text(value);
+        });
+    });
+
+    filteredShape.forEach((ufoSightings) => {
+        var row = tbody.append("tr");
+        Object.entries(ufoSightings).forEach(([key, value]) => {
+            var cell = row.append("td");
+            cell.text(value);
+        });
+    });
+
+    
+
 
 };
